@@ -1,5 +1,11 @@
-require "gosu_tiled/version"
+require 'gosu'
+require 'json'
+require 'gosu_tiled/version'
+require 'gosu_tiled/tilesets'
+require 'gosu_tiled/map'
 
-module GosuTiled
-  # Your code goes here...
+module Gosu
+  module Tiled
+
+  end
 end
