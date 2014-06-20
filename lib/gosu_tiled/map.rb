@@ -1,10 +1,11 @@
 module Gosu
   module Tiled
     class Map
-      def initialize(window, data)
+      def initialize(window, data, data_dir)
         @window = window
         @data = data
-        @tilesets = Tilesets.new(data['tilesets'])
+        @data_dir = data_dir
+        @tilesets = Tilesets.new(window, data['tilesets'], data_dir)
       end
 
       def tilesets
