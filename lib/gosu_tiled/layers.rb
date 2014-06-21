@@ -32,7 +32,7 @@ module Gosu
       end
 
       def each(&block)
-        tile.each do |layer|
+        @layers.each do |layer|
           if block_given?
             block.call(layer)
           else
