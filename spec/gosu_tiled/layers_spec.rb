@@ -21,6 +21,12 @@ RSpec.describe Gosu::Tiled::Layers do
     end
   end
 
+  describe '#object' do
+    it 'loads correct number of object layers' do
+      expect(layers.object.size).to be 1
+    end
+  end
+
   describe '#size' do
     it 'loads correct number of layers' do
       expect(layers.size).to eq map_json['layers'].size

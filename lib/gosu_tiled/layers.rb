@@ -12,7 +12,11 @@ module Gosu
       end
 
       def tile
-        @layers.select(&:visible?).select { |l| l.type == 'tilelayer' }
+        @layers.select { |l| l.type == 'tilelayer' }.select(&:visible?)
+      end
+
+      def object
+        @layers.select { |l| l.type == 'objectgroup' }.select(&:visible?)
       end
 
       def size
