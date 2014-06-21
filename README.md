@@ -5,7 +5,7 @@
 
 [Tiled](http://www.mapeditor.org/) map loader for [Gosu](http://www.libgosu.org) game development library.
 
-# How to use it?
+## How to use it?
 
 First, download [Tiled](http://www.mapeditor.org/) and create yourself a map.
 
@@ -22,14 +22,14 @@ class GameWindow < Gosu::Window
     super(800, 600, false)
     @map = Gosu::Tiled.load_json(self, 'path/to/map.json')
     @x = @y = 0
+    @speed = 3
   end
 
   def update
-    @factor = 3
-    @x -= @factor if button_down?(Gosu::KbLeft)
-    @x += @factor if button_down?(Gosu::KbRight)
-    @y -= @factor if button_down?(Gosu::KbUp)
-    @y += @factor if button_down?(Gosu::KbDown)
+    @x -= @speed if button_down?(Gosu::KbLeft)
+    @x += @speed if button_down?(Gosu::KbRight)
+    @y -= @speed if button_down?(Gosu::KbUp)
+    @y += @speed if button_down?(Gosu::KbDown)
   end
 
   def draw
@@ -45,6 +45,10 @@ Run it and enjoy your game map:
 ![Gosu Game](https://raw.githubusercontent.com/spajus/gosu-tiled/master/examples/screenshots/gosu_tiled.gif)
 
 See [full example code](https://github.com/spajus/gosu-tiled/blob/master/examples/panorama.rb).
+
+## TODO
+
+- Caching and other performance improvements
 
 ## Contributing
 

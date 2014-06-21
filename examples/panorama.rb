@@ -14,14 +14,14 @@ class GameWindow < Gosu::Window
     json_path = File.join(ROOT_DIR, 'spec', 'files', 'tiled_map.json')
     @map = Gosu::Tiled.load_json(self, json_path)
     @x = @y = 0
+    @speed = 3
   end
 
   def update
-    @factor = 3
-    @x -= @factor if button_down?(Gosu::KbLeft)
-    @x += @factor if button_down?(Gosu::KbRight)
-    @y -= @factor if button_down?(Gosu::KbUp)
-    @y += @factor if button_down?(Gosu::KbDown)
+    @x -= @speed if button_down?(Gosu::KbLeft)
+    @x += @speed if button_down?(Gosu::KbRight)
+    @y -= @speed if button_down?(Gosu::KbUp)
+    @y += @speed if button_down?(Gosu::KbDown)
     self.caption = "#{Gosu.fps} FPS. Mem: #{memory_usage} KB. Loc: [#{@x}:#{@y}]. Use arrow keys"
   end
 
