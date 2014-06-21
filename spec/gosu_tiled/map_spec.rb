@@ -34,6 +34,13 @@ RSpec.describe Gosu::Tiled::Map do
       end
       expect(error).to be_nil
     end
+
+    it 'draws shifted map on game window' do
+      error = game_window.while_showing do
+        map.draw(300, 400)
+      end
+      expect(error).to be_nil
+    end
   end
 
 end

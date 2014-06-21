@@ -9,6 +9,8 @@ require 'gosu_tiled/map'
 
 module Gosu
   module Tiled
-
+    def self.load_json(window, json)
+      Map.new(window, JSON.load(File.open(json)), File.dirname(json))
+    end
   end
 end

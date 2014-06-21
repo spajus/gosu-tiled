@@ -21,7 +21,7 @@ module Gosu
       end
 
       def get(index)
-        return empty_tile if index == 0
+        return empty_tile if index == 0 || index.nil?
         key = closest_key(index)
         @tilesets[key]['tiles'][index - key]
       end

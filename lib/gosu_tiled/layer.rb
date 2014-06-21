@@ -42,12 +42,32 @@ module Gosu
 
       private
 
+      def offset_x_in_tiles(x)
+        x / tile_width
+      end
+
+      def offset_y_in_tiles(y)
+        y / tile_height
+      end
+
       def draw_tiles(x, y, tilesets)
-        (0..screen_width_in_tiles).each do |xx|
-          (0..screen_height_in_tiles).each do |yy|
-            tilesets.get(tile_at(xx, yy)).draw(xx * tile_width, yy * tile_height, 0)
+        off_x = offset_x_in_tiles(x)
+        off_y = offset_y_in_tiles(y)
+        tile_range_x = (off_x..screen_width_in_tiles + off_x)
+        tile_range_y = (off_y..screen_height_in_tiles + off_y)
+        tile_range_x.each do |xx|
+          tile_range_y.each do |yy|
+            tilesets.get(tile_at(xx, yy)).draw(transpose_tile_x(xx, x), transpose_tile_y(yy, y), 0)
           end
         end
+      end
+
+      def transpose_tile_x(x, off_x)
+        x * tile_width - off_x
+      end
+
+      def transpose_tile_y(y, off_y)
+        y * tile_height - off_y
       end
 
       def draw_objects(x, y, tilesets)
