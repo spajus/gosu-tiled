@@ -1,5 +1,8 @@
 # gosu-tiled
 
+[![Gem Version](https://badge.fury.io/rb/gosu_tiled.svg)](http://badge.fury.io/rb/gosu_tiled)
+[![Code Climate](https://codeclimate.com/github/spajus/gosu-tiled.png)](https://codeclimate.com/github/spajus/gosu-tiled)
+
 [Tiled](http://www.mapeditor.org/) map loader for [Gosu](http://www.libgosu.org) game development library.
 
 # How to use it?
