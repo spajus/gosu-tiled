@@ -44,4 +44,10 @@ RSpec.describe Gosu::Tiled::Tilesets do
     end
   end
 
+  describe '#properties' do
+    it 'retrieves tile properties' do
+      expect(tilesets.properties(water_tile)['name']).to eq 'water'
+    end
+  end
+
 end

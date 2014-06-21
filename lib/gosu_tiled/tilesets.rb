@@ -9,7 +9,10 @@ module Gosu
         @data.each do |t|
           tileset = Gosu::Image.load_tiles(
             @window, File.join(data_dir, t['image']), t['tilewidth'], t['tileheight'], true)
-          @tilesets[t['firstgid']] = tileset
+          @tilesets[t['firstgid']] = {
+            'data' => t,
+            'tiles' => tileset
+          }
         end
       end
 
@@ -20,7 +23,15 @@ module Gosu
       def get(index)
         return empty_tile if index == 0
         key = closest_key(index)
-        @tilesets[key][index - key]
+        @tilesets[key]['tiles'][index - key]
+      end
+
+      def properties(index)
+        return {} if index == 0
+        key = closest_key(index)
+        props = @tilesets[key]['data']['tileproperties']
+        return {} unless props
+        props[(index - key).to_s]
       end
 
       private
