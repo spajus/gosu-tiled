@@ -5,11 +5,8 @@ module Gosu
         @root_dir = data_dir
         @window = window
         @data = data
-        puts 'data'
-        puts data
         @tilesets = {}
         @data.each do |t|
-          puts "Loading: #{t['image']} as #{t['firstgid']}"
           tileset = Gosu::Image.load_tiles(
             @window, File.join(data_dir, t['image']), t['tilewidth'], t['tileheight'], true)
           @tilesets[t['firstgid']] = tileset
@@ -21,11 +18,16 @@ module Gosu
       end
 
       def get(index)
+        return empty_tile if index == 0
         key = closest_key(index)
-        @tilesets[key][key - index]
+        @tilesets[key][index - key]
       end
 
       private
+
+      def empty_tile
+        @empty_tile ||= EmptyTile.new
+      end
 
       def closest_key(index)
         @tilesets.keys.select { |k| k <= index }.max

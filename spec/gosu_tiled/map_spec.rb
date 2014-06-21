@@ -5,7 +5,7 @@ RSpec.describe Gosu::Tiled::Map do
   let(:files_dir) { File.join(File.dirname(File.dirname(__FILE__)), 'files') }
   let(:target_class) { Gosu::Tiled::Map }
   let(:map_json) { JSON.load(File.open(File.join(files_dir, 'tiled_map.json'))) }
-  let(:game_window) { Gosu::Window.new(640, 480, false) }
+  let(:game_window) { TestGameWindow.instance }
 
   subject(:map) { target_class.new(game_window, map_json, files_dir) }
 
@@ -25,9 +25,18 @@ RSpec.describe Gosu::Tiled::Map do
     end
   end
 
+  describe '#layers' do
+    it 'loads correct number of layers' do
+      expect(map.layers.size).to eq 2
+    end
+  end
+
   describe '#draw' do
     it 'draws the map on game window' do
-      expect { map.draw(0, 0) }.to_not raise_error
+      error = game_window.while_showing do
+        map.draw(0, 0)
+      end
+      expect(error).to be_nil
     end
   end
 

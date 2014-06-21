@@ -5,8 +5,9 @@ RSpec.describe Gosu::Tiled::Tilesets do
   let(:files_dir) { File.join(File.dirname(File.dirname(__FILE__)), 'files') }
   let(:target_class) { Gosu::Tiled::Tilesets }
   let(:map_json) { JSON.load(File.open(File.join(files_dir, 'tiled_map.json'))) }
-  let(:game_window) { TestGameWindow.new(640, 480, false) }
+  let(:game_window) { TestGameWindow.instance }
   let(:water_tile) { 65 }
+  let(:sand_tile) { 1 }
 
   subject(:tilesets) { target_class.new(game_window, map_json['tilesets'], files_dir) }
 
@@ -23,16 +24,24 @@ RSpec.describe Gosu::Tiled::Tilesets do
   end
 
   describe '#get' do
-    it 'gets the right tile' do
+    it 'gets the right water tile' do
       expect(tilesets.get(water_tile)).to be_a Gosu::Image
     end
 
-    it 'can draw the tile that was retrieved' do
-      game_window.while_showing do
-        tilesets.get(water_tile).draw(0, 0, 0)
-      end
+    it 'gets the right sand tile' do
+      expect(tilesets.get(sand_tile)).to be_a Gosu::Image
     end
 
+    it 'can draw the tile that was retrieved' do
+      error = game_window.while_showing do
+        tilesets.get(sand_tile).draw(0, 0, 0)
+      end
+      expect(error).to be_nil
+    end
+
+    it 'returns empty tile' do
+      expect(tilesets.get(0)).to be_a Gosu::Tiled::EmptyTile
+    end
   end
 
 end

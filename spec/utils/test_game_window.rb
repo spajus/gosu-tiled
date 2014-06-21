@@ -1,36 +1,39 @@
-class TestGameWindow < Gosu::Window
-  def initialize(*args)
-    super
-  end
+require 'singleton'
 
-  def draw
-    @draw_block.call if @draw_block
+class TestGameWindow < Gosu::Window
+  include Singleton
+
+  def initialize
+    super(640, 480, false)
+    self.caption = "Esc = quit"
   end
 
   def update
-    caption_msg = "Esc = quit"
-    unless @freeze
-      left = 2000 - Gosu.milliseconds - @start
-      close if left <= 0
-      caption_msg << ", Space = freeze, auto close in #{left} ms"
+    unless ENV['NO_CLOSE']
+      close if @start && Gosu.milliseconds - @start > 500
     end
-    self.caption = caption_msg
+  end
+
+  def draw
+    @draw_block.call
+  rescue => e
+    unless @error
+      puts e
+      puts e.backtrace
+    end
+    @error = e
   end
 
   def button_down(id)
     close if id == Gosu::KbEscape
-    @freeze = true if id == Gosu::KbSpace
   end
 
   def while_showing(&block)
-    @draw_block = block
-    start_timer
-    show
-  end
-
-  private
-
-  def start_timer
     @start = Gosu.milliseconds
+    @error = nil
+    @draw_block = block
+    show
+    @start = false
+    @error
   end
 end
