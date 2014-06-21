@@ -59,13 +59,13 @@ RSpec.describe Gosu::Tiled::Layer do
 
   describe '#screen_width_in_tiles' do
     it 'knows how many tiles to draw' do
-      expect(tile_layer.screen_width_in_tiles).to be game_window.width / 128
+      expect(tile_layer.screen_width_in_tiles).to be (game_window.width / 128.0).ceil
     end
   end
 
   describe '#screen_height_in_tiles' do
     it 'knows how many tiles to draw' do
-      expect(tile_layer.screen_height_in_tiles).to be game_window.height / 128
+      expect(tile_layer.screen_height_in_tiles).to be (game_window.height / 128.0).ceil
     end
   end
 end
