@@ -33,11 +33,11 @@ module Gosu
       end
 
       def screen_width_in_tiles
-        (@window.width.to_f / tile_width.to_f).ceil
+        @window.width / tile_width
       end
 
       def screen_height_in_tiles
-        (@window.height.to_f / tile_height.to_f).ceil
+        @window.height / tile_height
       end
 
       private

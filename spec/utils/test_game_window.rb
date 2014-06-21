@@ -4,7 +4,7 @@ class TestGameWindow < Gosu::Window
   include Singleton
 
   def initialize
-    super(640, 480, false)
+    super(1200, 800, false)
     self.caption = "Esc = quit"
   end
 
