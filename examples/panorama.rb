@@ -17,7 +17,7 @@ class GameWindow < Gosu::Window
   end
 
   def update
-    @factor = 10
+    @factor = 3
     @x -= @factor if button_down?(Gosu::KbLeft)
     @x += @factor if button_down?(Gosu::KbRight)
     @y -= @factor if button_down?(Gosu::KbUp)
