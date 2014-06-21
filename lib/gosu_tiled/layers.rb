@@ -2,13 +2,11 @@ module Gosu
   module Tiled
     class Layers
       include Enumerable
-      def initialize(window, data, tile_width, tile_height)
+      def initialize(window, data, options)
         @window = window
         @layers = data.map do |layer|
-          Layer.new(window, layer, tile_width, tile_height)
+          Layer.new(window, layer, options)
         end
-        @tile_width = tile_width
-        @tile_height = tile_height
       end
 
       def tile
@@ -21,14 +19,6 @@ module Gosu
 
       def size
         @layers.size
-      end
-
-      def tile_width
-        @tile_width
-      end
-
-      def tile_height
-        @tile_height
       end
 
       def each(&block)

@@ -17,10 +17,12 @@ class GameWindow < Gosu::Window
   end
 
   def update
-    @x -= 1 if button_down?(Gosu::KbLeft)
-    @x += 1 if button_down?(Gosu::KbRight)
-    @y -= 1 if button_down?(Gosu::KbUp)
-    @y += 1 if button_down?(Gosu::KbDown)
+    @factor = 10
+    @x -= @factor if button_down?(Gosu::KbLeft)
+    @x += @factor if button_down?(Gosu::KbRight)
+    @y -= @factor if button_down?(Gosu::KbUp)
+    @y += @factor if button_down?(Gosu::KbDown)
+    self.caption = "#{Gosu.fps} FPS. Mem: #{memory_usage} KB. Loc: [#{@x}:#{@y}]. Use arrow keys"
   end
 
   def button_down(id)
@@ -29,6 +31,15 @@ class GameWindow < Gosu::Window
 
   def draw
     @map.draw(@x, @y)
+  end
+
+  private
+
+  def memory_usage
+    `ps -o rss= -p #{Process.pid}`
+      .chomp.gsub(/(\d)(?=(\d{3})+(\..*)?$)/,'\1,') + ' KB'
+  rescue
+    "Unavailable. Using Windows?"
   end
 end
 

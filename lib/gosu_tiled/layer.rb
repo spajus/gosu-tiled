@@ -1,11 +1,10 @@
 module Gosu
   module Tiled
     class Layer
-      def initialize(window, data, tile_width, tile_height)
+      def initialize(window, data, options)
         @window = window
         @data = data
-        @tile_width = tile_width
-        @tile_height = tile_height
+        @options = options
       end
 
       def visible?
@@ -14,14 +13,6 @@ module Gosu
 
       def type
         @data['type']
-      end
-
-      def tile_width
-        @tile_width
-      end
-
-      def tile_height
-        @tile_height
       end
 
       def draw(x, y, tilesets)
@@ -57,9 +48,23 @@ module Gosu
         tile_range_y = (off_y..screen_height_in_tiles + off_y)
         tile_range_x.each do |xx|
           tile_range_y.each do |yy|
-            tilesets.get(tile_at(xx, yy)).draw(transpose_tile_x(xx, x), transpose_tile_y(yy, y), 0)
+            target_x = transpose_tile_x(xx, x)
+            target_y = transpose_tile_y(yy, y)
+            if within_map_range(x + target_x, y + target_y)
+              tilesets.get(tile_at(xx, yy)).draw(target_x, target_y, 0)
+            end
           end
         end
+      end
+
+      def within_map_range(x, y)
+        (0..map_width - 1).include?(x) && (0..map_height - 1).include?(y)
+      end
+
+      def within_screen_range(x, y)
+        range_x = (x - tile_width..@window.width + x + tile_width)
+        range_y = (y..@window.height + y + tile_height)
+        range_x.include?(x) && range_y.include?(y)
       end
 
       def transpose_tile_x(x, off_x)
@@ -71,13 +76,11 @@ module Gosu
       end
 
       def draw_objects(x, y, tilesets)
-        range_x = (x..@window.width + x)
-        range_y = (y..@window.height + y)
         @data['objects'].each do |obj|
           obj_x = obj['x']
           obj_y = obj['y']
-          if range_x.include?(obj_x) && range_y.include?(obj_y)
-            tilesets.get(obj['gid']).draw(obj_x - x, obj_y - y, 10)
+          if within_screen_range(obj_x, obj_y)
+            tilesets.get(obj['gid']).draw(obj_x - x, obj_y - y - tile_height, 10)
           end
         end
       end
@@ -85,6 +88,23 @@ module Gosu
       def tile_at(x, y)
         @data['data'][y * @data['width'] + x]
       end
+
+      def tile_width
+        @options[:tile_width]
+      end
+
+      def tile_height
+        @options[:tile_height]
+      end
+
+      def map_width
+        @options[:width]
+      end
+
+      def map_height
+        @options[:height]
+      end
+
     end
   end
 end

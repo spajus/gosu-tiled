@@ -6,10 +6,11 @@ RSpec.describe Gosu::Tiled::Layer do
   let(:target_class) { Gosu::Tiled::Layer }
   let(:map_json) { JSON.load(File.open(File.join(files_dir, 'tiled_map.json'))) }
   let(:game_window) { TestGameWindow.instance }
+  let(:options) { { width: 128 * 10, height: 128 * 10, tile_width: 128, tile_height: 128 } }
 
   subject(:tilesets) { Gosu::Tiled::Tilesets.new(game_window, map_json['tilesets'], files_dir) }
-  subject(:tile_layer) { target_class.new(game_window, map_json['layers'][1], 128, 128) }
-  subject(:object_layer) { target_class.new(game_window, map_json['layers'][3], 128, 128) }
+  subject(:tile_layer) { target_class.new(game_window, map_json['layers'][1], options) }
+  subject(:object_layer) { target_class.new(game_window, map_json['layers'][3], options) }
 
   describe '#initialize' do
     it 'initializes' do
@@ -42,18 +43,6 @@ RSpec.describe Gosu::Tiled::Layer do
         object_layer.draw(0, 0, tilesets)
       end
       expect(error).to be_nil
-    end
-  end
-
-  describe '#tile_width' do
-    it 'has correct tile width' do
-      expect(tile_layer.tile_width).to be 128
-    end
-  end
-
-  describe '#tile_height' do
-    it 'has correct tile height' do
-      expect(tile_layer.tile_height).to be 128
     end
   end
 

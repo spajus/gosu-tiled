@@ -27,6 +27,18 @@ RSpec.describe Gosu::Tiled::Map do
     end
   end
 
+  describe '#width' do
+    it "knows it's width" do
+      expect(map.width).to be 128 * 10
+    end
+  end
+
+  describe '#height' do
+    it "knows it's height" do
+      expect(map.height).to be 128 * 10
+    end
+  end
+
   describe '#draw' do
     it 'draws the map on game window' do
       error = game_window.while_showing do
