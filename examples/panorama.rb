@@ -18,10 +18,10 @@ class GameWindow < Gosu::Window
   end
 
   def update
-    @x -= @speed if button_down?(Gosu::KbLeft)
-    @x += @speed if button_down?(Gosu::KbRight)
-    @y -= @speed if button_down?(Gosu::KbUp)
-    @y += @speed if button_down?(Gosu::KbDown)
+    @x -= @speed if button_down?(Gosu::KbLeft) && @x > 0
+    @x += @speed if button_down?(Gosu::KbRight) && @x < @map.width - WIDTH
+    @y -= @speed if button_down?(Gosu::KbUp) && @y > 0
+    @y += @speed if button_down?(Gosu::KbDown) && @y < @map.height - HEIGHT
     self.caption = "#{Gosu.fps} FPS. Mem: #{memory_usage} KB. Loc: [#{@x}:#{@y}]. Use arrow keys"
   end
 
