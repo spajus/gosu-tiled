@@ -22,6 +22,12 @@ RSpec.describe Gosu::Tiled::Layer do
     end
   end
 
+  describe '#type' do
+    it 'knows correct type' do
+      expect(layer1.type).to eq 'tilelayer'
+    end
+  end
+
   describe '#draw' do
     it 'draws the layer' do
       error = game_window.while_showing do

@@ -15,6 +15,18 @@ RSpec.describe Gosu::Tiled::Layers do
     end
   end
 
+  describe '#tile' do
+    it 'loads correct number of tile layers' do
+      expect(layers.tile.size).to be 2
+    end
+  end
+
+  describe '#size' do
+    it 'loads correct number of layers' do
+      expect(layers.size).to eq map_json['layers'].size
+    end
+  end
+
   describe '#tile_width' do
     it 'has correct tile width' do
       expect(layers.tile_width).to be 128

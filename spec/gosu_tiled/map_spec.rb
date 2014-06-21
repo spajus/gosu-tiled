@@ -16,18 +16,14 @@ RSpec.describe Gosu::Tiled::Map do
   end
 
   describe '#tilesets' do
-    it 'loads correct number of tilesets' do
-      expect(map.tilesets.size).to eq 2
-    end
-
     it 'returns instance of Tilesets' do
       expect(map.tilesets).to be_a Gosu::Tiled::Tilesets
     end
   end
 
   describe '#layers' do
-    it 'loads correct number of layers' do
-      expect(map.layers.size).to eq 2
+    it 'returns instance of Layers' do
+      expect(map.layers).to be_a Gosu::Tiled::Layers
     end
   end
 

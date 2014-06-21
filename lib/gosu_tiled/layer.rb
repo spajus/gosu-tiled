@@ -12,6 +12,10 @@ module Gosu
         @data['visible']
       end
 
+      def type
+        @data['type']
+      end
+
       def tile_width
         @tile_width
       end

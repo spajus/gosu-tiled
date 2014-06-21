@@ -11,6 +11,10 @@ module Gosu
         @tile_height = tile_height
       end
 
+      def tile
+        @layers.select(&:visible?).select { |l| l.type == 'tilelayer' }
+      end
+
       def size
         @layers.size
       end
@@ -24,7 +28,7 @@ module Gosu
       end
 
       def each(&block)
-        @layers.select(&:visible?).each do |layer|
+        tile.each do |layer|
           if block_given?
             block.call(layer)
           else

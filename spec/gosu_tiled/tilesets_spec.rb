@@ -19,7 +19,7 @@ RSpec.describe Gosu::Tiled::Tilesets do
 
   describe '#size' do
     it 'loads correct number of tilesets' do
-      expect(tilesets.size).to eq 2
+      expect(tilesets.size).to eq map_json['tilesets'].size
     end
   end
 

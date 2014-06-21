@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="128" tileheight="128">
+ <tileset firstgid="1" name="ground" tilewidth="128" tileheight="128">
+  <image source="../../../gosu_texture_packer/spec/files/ground.png" width="1024" height="1024"/>
+  <tile id="1">
+   <properties>
+    <property name="name" value="second"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="65" name="water" tilewidth="128" tileheight="128">
+  <image source="../../../../Desktop/water.png" width="128" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="death" value="sinking"/>
+    <property name="name" value="water"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="66" name="Trees" tilewidth="128" tileheight="128">
+  <image source="trees.png" width="704" height="704"/>
+ </tileset>
+ <layer name="Water" width="10" height="10">
+  <data>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+   <tile gid="65"/>
+  </data>
+ </layer>
+ <layer name="Ground" width="10" height="10">
+  <data>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="7"/>
+   <tile gid="5"/>
+   <tile gid="57"/>
+   <tile gid="43"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="28"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="42"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="44"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="42"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="28"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="27"/>
+   <tile gid="43"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="28"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="27"/>
+   <tile gid="43"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="28"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="59"/>
+   <tile gid="16"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="48"/>
+   <tile gid="62"/>
+   <tile gid="61"/>
+   <tile gid="61"/>
+   <tile gid="16"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+  </data>
+ </layer>
+ <objectgroup name="obj" width="10" height="10" visible="0"/>
+ <objectgroup name="Trees" width="10" height="10">
+  <object gid="66" x="580" y="506"/>
+  <object gid="66" x="615" y="302"/>
+  <object gid="74" x="408" y="238"/>
+  <object gid="77" x="314" y="420"/>
+  <object gid="79" x="474" y="654"/>
+  <object gid="80" x="672" y="610"/>
+  <object gid="81" x="403" y="726"/>
+  <object gid="81" x="323" y="787"/>
+  <object gid="86" x="654" y="827"/>
+  <object gid="87" x="282" y="552"/>
+  <object gid="87" x="665" y="597"/>
+  <object gid="90" x="698" y="633"/>
+  <object gid="90" x="718" y="636"/>
+  <object gid="80" x="456" y="426"/>
+  <object gid="82" x="464" y="434"/>
+  <object gid="82" x="505" y="412"/>
+  <object gid="82" x="512" y="454"/>
+  <object gid="76" x="313" y="202"/>
+  <object gid="76" x="574" y="251"/>
+  <object gid="76" x="588" y="702"/>
+  <object gid="76" x="723" y="694"/>
+  <object gid="87" x="462" y="724"/>
+  <object gid="87" x="483" y="763"/>
+  <object gid="87" x="487" y="735"/>
+  <object gid="87" x="534" y="758"/>
+  <object gid="87" x="505" y="772"/>
+  <object gid="87" x="544" y="802"/>
+  <object gid="87" x="519" y="801"/>
+  <object gid="87" x="478" y="809"/>
+  <object gid="87" x="420" y="796"/>
+  <object gid="87" x="406" y="825"/>
+  <object gid="87" x="446" y="844"/>
+  <object gid="87" x="483" y="844"/>
+  <object gid="87" x="545" y="853"/>
+  <object gid="87" x="509" y="845"/>
+  <object gid="87" x="578" y="848"/>
+  <object gid="87" x="582" y="829"/>
+  <object gid="87" x="293" y="258"/>
+  <object gid="87" x="289" y="305"/>
+  <object gid="87" x="302" y="285"/>
+  <object gid="87" x="298" y="337"/>
+  <object gid="78" x="373" y="615"/>
+  <object gid="78" x="301" y="639"/>
+  <object gid="78" x="336" y="671"/>
+ </objectgroup>
+</map>
