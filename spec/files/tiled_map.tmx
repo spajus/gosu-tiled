@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="128" tileheight="128">
  <tileset firstgid="1" name="ground" tilewidth="128" tileheight="128">
-  <image source="../../../gosu_texture_packer/spec/files/ground.png" width="1024" height="1024"/>
+  <image source="ground.png" width="1024" height="1024"/>
   <tile id="1">
    <properties>
     <property name="name" value="second"/>
@@ -9,7 +9,7 @@
   </tile>
  </tileset>
  <tileset firstgid="65" name="water" tilewidth="128" tileheight="128">
-  <image source="../../../../Desktop/water.png" width="128" height="128"/>
+  <image source="water.png" width="128" height="128"/>
   <tile id="0">
    <properties>
     <property name="death" value="sinking"/>
