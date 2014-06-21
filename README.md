@@ -7,15 +7,15 @@
 
 ## How to use it?
 
-First, download [Tiled](http://www.mapeditor.org/) and create yourself a map.
-
-![Tiled Map](https://raw.githubusercontent.com/spajus/gosu-tiled/master/examples/screenshots/tiled.png)
-
 Install the gem:
 
 ```console
 gem install gosu_tiled
 ```
+
+Create yourself a game map with [Tiled](http://www.mapeditor.org/):
+
+![Tiled Map](https://raw.githubusercontent.com/spajus/gosu-tiled/master/examples/screenshots/tiled.png)
 
 Then export it as JSON and use with Gosu like this:
 
