@@ -17,7 +17,7 @@ Create yourself a game map with [Tiled](http://www.mapeditor.org/):
 
 ![Tiled Map](https://raw.githubusercontent.com/spajus/gosu-tiled/master/examples/screenshots/tiled.png)
 
-Then export it as JSON and use with Gosu like this:
+Create your TMX, Then export it as JSON and use with Gosu like this:
 
 ```ruby
 require 'gosu'
@@ -55,6 +55,13 @@ See [full example code](https://github.com/spajus/gosu-tiled/blob/master/example
 ## TODO
 
 - Caching and other performance improvements
+
+## Why JSON and not TMX?
+
+- TMX is based on XML
+- XML is a terrible format that should be extinct
+- XML parsing in Ruby is done with [Nokogiri](http://nokogiri.org/), which is a heavy library
+- JSON is simple and elegant
 
 ## Contributing
 
