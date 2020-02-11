@@ -1,14 +1,14 @@
 module Gosu
   module Tiled
     class Tilesets
-      def initialize(window, data, data_dir)
+      def initialize(data, data_dir, retro: false, tileable: true)
         @root_dir = data_dir
-        @window = window
         @data = data
         @tilesets = {}
         @data.each do |t|
           tileset = Gosu::Image.load_tiles(
-            @window, File.join(data_dir, t['image']), t['tilewidth'], t['tileheight'], true)
+            File.join(data_dir, t['image']), t['tilewidth'], t['tileheight'], retro: retro, tileable: tileable
+          )
           @tilesets[t['firstgid']] = {
             'data' => t,
             'tiles' => tileset

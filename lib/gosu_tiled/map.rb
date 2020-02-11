@@ -3,13 +3,13 @@ module Gosu
     class Map
       attr_reader :tilesets, :layers, :width, :height
 
-      def initialize(window, data, data_dir)
+      def initialize(window, data, data_dir, options = {})
         @window = window
         @data = data
         @data_dir = data_dir
         @width = data['width'] * data['tilewidth']
         @height = data['height'] * data['tileheight']
-        @tilesets = Tilesets.new(window, data['tilesets'], data_dir)
+        @tilesets = Tilesets.new(data['tilesets'], data_dir, options)
         @layers = Layers.new(window,
                              data['layers'],
                              width: @width,

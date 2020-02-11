@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 RSpec.describe Gosu::Tiled::Layer do
-
   let(:files_dir) { File.join(File.dirname(File.dirname(__FILE__)), 'files') }
   let(:target_class) { Gosu::Tiled::Layer }
   let(:map_json) { JSON.load(File.open(File.join(files_dir, 'tiled_map.json'))) }
   let(:game_window) { TestGameWindow.instance }
   let(:options) { { width: 128 * 10, height: 128 * 10, tile_width: 128, tile_height: 128 } }
 
-  subject(:tilesets) { Gosu::Tiled::Tilesets.new(game_window, map_json['tilesets'], files_dir) }
+  subject(:tilesets) { Gosu::Tiled::Tilesets.new(map_json['tilesets'], files_dir) }
   subject(:tile_layer) { target_class.new(game_window, map_json['layers'][1], options) }
   subject(:object_layer) { target_class.new(game_window, map_json['layers'][3], options) }
 
