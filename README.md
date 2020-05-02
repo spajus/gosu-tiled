@@ -17,7 +17,7 @@ Create yourself a game map with [Tiled](http://www.mapeditor.org/):
 
 ![Tiled Map](https://raw.githubusercontent.com/spajus/gosu-tiled/master/examples/screenshots/tiled.png)
 
-Create your TMX, make sure "Tile Layer Format" is set to "CSV", then export it as JSON and use with Gosu like this:
+Create your TMX, make sure "Tile Layer Format" is set to "CSV" and your tilesets are embedded, then export it as JSON and use with Gosu like this:
 
 ```ruby
 require 'gosu'
